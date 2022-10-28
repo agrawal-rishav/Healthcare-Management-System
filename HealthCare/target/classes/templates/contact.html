@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"></html>
+<html>
+	<head>
+		<title>HMS | Contact us</title>
+		<link th:href="@{css/style.css}" rel="stylesheet" type="text/css"  media="all" />
+		<link th:href='@{http://fonts.googleapis.com/css?family=Ropa+Sans}' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+		<!--start-wrap-->
+		
+			<!--start-header-->
+			<div class="header">
+				<div class="wrap">
+				<!--start-logo-->
+				<div class="logo">
+		<a th:href="@{/index}" style="font-size: 30px;">Hospital Management system</a> 
+				</div>
+				<!--end-logo-->
+				<!--start-top-nav-->
+				<div class="top-nav">
+					<ul>
+						<li><a th:href="@{/index}">Home</a></li>
+					
+						<li class="active"><a th:href="@{/contact}">contact</a></li>
+					</ul>					
+				</div>
+				<div class="clear"> </div>
+				<!--end-top-nav-->
+			</div>
+			<!--end-header-->
+		</div>
+		    <div class="clear"> </div>
+		   <div class="wrap">
+		   	<div class="contact">
+		   	<div class="section group">				
+				<div class="col span_1_of_3">
+					
+      			<div class="company_address">
+				     	<h2>Hospital Address  :</h2>
+						    	<p>Sathyabama University,</p>
+						   		<p>Kamaraj Nagar, Chennai-600119,</p>
+						   		<p>India</p>
+				   		<p>Phone:(+91) 123 456 789</p>
+				   		<p>Fax: (000) 000 00 00 0</p>
+				 	 	<p>Email: <span>aggrawalrishav@gmail.com</span></p>
+				   	
+				   </div>
+				</div>				
+				<div class="col span_2_of_3">
+				  <div class="contact-form">
+				  	<h2>Contact Us</h2>
+					    <form action="#" name="contactus" method="post" th:action="@{/contactUs}" th:object="${contact}">
+					    	<div>
+						    	<span><label>NAME</label></span>
+						    	<span><input type="text" th:field="*{fullname}" name="fullname" required="true" value=""></span>
+						    </div>
+						    <div>
+						    	<span><label>E-MAIL</label></span>
+						    	<span><input type="email" th:field="*{emailid}" name="emailid" required="true" value=""></span>
+						    </div>
+						    <div>
+						     	<span><label>MOBILE.NO</label></span>
+						    	<span><input type="text" th:field="*{mobileno}" name="mobileno" required="true" value=""></span>
+						    </div>
+						    <div>
+						    	<span><label>Description</label></span>
+						    	<span><textarea name="description" th:field="*{description}" required="true"> </textarea></span>
+						    </div>
+						   <div>
+						   		<span><input type="submit" name="submit" value="Submit"></span>
+						  </div>
+					    </form>
+				    </div>
+  				</div>				
+			  </div>
+			  	 <div class="clear"> </div>
+	</div>
+	<div class="clear"> </div>
+			</div>
+	      <div class="clear"> </div>
+		   <div class="footer">
+		   	 <div class="wrap">
+		   	<div class="footer-left">
+		   			<ul>
+						<li><a th:href="@{/index}">Home</a></li>
+						
+						<li><a th:href="@{/contact}">contact</a></li>
+					</ul>
+		   	</div>
+		  
+		   	<div class="clear"> </div>
+		   </div>
+		   </div>
+		<!--end-wrap-->
+	</body>
+</html>
+
