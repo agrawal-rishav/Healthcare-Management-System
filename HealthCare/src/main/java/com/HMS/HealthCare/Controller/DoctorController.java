@@ -29,6 +29,11 @@ public class DoctorController {
         return "hms/doctor/dashboard";
     }
 
+    @GetMapping("/hms/doctor/forgot-password")
+    public String getForgotPassword() {
+        return "hms/doctor/forgot-password";
+    }
+
     @GetMapping("/hms/doctor/appointment-history")
     public String getAppointmentHistory() {
         return "hms/doctor/appointment-history";
@@ -52,6 +57,21 @@ public class DoctorController {
     @GetMapping("/hms/doctor/edit-profile")
     public String getEditProfile() {
         return "hms/doctor/edit-profile";
+    }
+
+    @GetMapping("/hms/doctor/change-password")
+    public String getChangePassword() {
+        return "hms/doctor/change-password";
+    }
+
+    @GetMapping("/hms/doctor/view-patient")
+    public String getViewPatient() {
+        return "hms/doctor/view-patient";
+    }
+
+    @GetMapping("/hms/doctor/edit-patient")
+    public String getEditPatient() {
+        return "hms/doctor/edit-patient";
     }
 
 }

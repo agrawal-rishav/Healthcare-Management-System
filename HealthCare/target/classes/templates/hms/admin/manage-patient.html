@@ -70,7 +70,7 @@
 <td></td>
 <td>
 
-<a href=""><i class="fa fa-eye"></i></a>
+<a th:href="@{/hms/admin/view-patient}"><i class="fa fa-eye"></i></a>
 
 </td>
 </tr>
@@ -88,7 +88,7 @@
 			<!-- end: FOOTER -->
 		
 			<!-- start: SETTINGS -->
-			
+			<div th:insert="/hms/admin/fragments/setting.html :: setting"></div>
 			<!-- end: SETTINGS -->
 		</div>
 		<!-- start: MAIN JAVASCRIPTS -->

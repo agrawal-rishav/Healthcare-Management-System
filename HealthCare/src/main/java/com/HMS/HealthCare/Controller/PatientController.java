@@ -42,4 +42,25 @@ public class PatientController {
     public String getViewMedhistory() {
         return "hms/view-medhistory";
     }
+
+    @GetMapping("/hms/edit-profile")
+    public String getEditProfile() {
+        return "hms/edit-profile";
+    }
+
+    @GetMapping("/hms/change-password")
+    public String getChangePassword() {
+        return "hms/change-password";
+    }
+
+    @GetMapping("/hms/forgot-password")
+    public String getForgotPassword() {
+        return "hms/forgot-password";
+    }
+
+    @GetMapping("/hms/registeration")
+    public String getRegisteration() {
+        return "hms/registeration";
+    }
+
 }

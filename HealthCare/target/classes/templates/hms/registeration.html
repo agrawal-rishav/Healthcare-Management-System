@@ -1,19 +1,20 @@
 <!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"></html>
 <html lang="en">
 
 	<head>
 		<title>User Registration</title>
 		
-		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
-		<link rel="stylesheet" href="hms/hms/vendor/bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" href="hms/hms/vendor/fontawesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="hms/hms/vendor/themify-icons/themify-icons.min.css">
-		<link href="hms/hms/vendor/animate.css/animate.min.css" rel="stylesheet" media="screen">
-		<link href="hms/hms/vendor/perfect-scrollbar/perfect-scrollbar.min.css" rel="stylesheet" media="screen">
-		<link href="hms/hms/vendor/switchery/switchery.min.css" rel="stylesheet" media="screen">
-		<link rel="stylesheet" href="hms/hms/assets/css/styles.css">
-		<link rel="stylesheet" href="hms/hms/assets/css/plugins.css">
-		<link rel="stylesheet" href="hms/hms/assets/css/themes/theme-1.css" id="skin_color" />
+		<link th:href="@{http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic}" rel="stylesheet" type="text/.css}" />
+		<link rel="stylesheet" th:href="@{/hms/vendor/bootstrap/css/bootstrap.min.css}">
+		<link rel="stylesheet" th:href="@{/hms/vendor/fontawesome/css/font-awesome.min.css}">
+		<link rel="stylesheet" th:href="@{/hms/vendor/themify-icons/themify-icons.min.css}">
+		<link th:href="@{/hms/vendor/animate.css/animate.min.css}" rel="stylesheet" media="screen">
+		<link th:href="@{/hms/vendor/perfect-scrollbar/perfect-scrollbar.min.css}" rel="stylesheet" media="screen">
+		<link th:href="@{/hms/vendor/switchery/switchery.min.css}" rel="stylesheet" media="screen">
+		<link rel="stylesheet" th:href="@{/hms/assets/css/styles.css}">
+		<link rel="stylesheet" th:href="@{/hms/assets/css/plugins.css}">
+		<link rel="stylesheet" th:href="@{/hms/assets/css/themes/theme-1.css}" id="skin_color" />
 		
 		<script type="text/javascript">
 function valid()
@@ -102,7 +103,7 @@ return true;
 							<div class="form-actions">
 								<p>
 									Already have an account?
-									<a href="user-login.html">
+									<a th:href="@{/hms/patient}">
 										Log-in
 									</a>
 								</p>
@@ -121,16 +122,16 @@ return true;
 
 			</div>
 		</div>
-		<script src="hms/vendor/jquery/jquery.min.js"></script>
-		<script src="hms/vendor/bootstrap/js/bootstrap.min.js"></script>
-		<script src="hms/vendor/modernizr/modernizr.js"></script>
-		<script src="hms/vendor/jquery-cookie/jquery.cookie.js"></script>
-		<script src="hms/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-		<script src="hms/vendor/switchery/switchery.min.js"></script>
-		<script src="hms/vendor/jquery-validation/jquery.validate.min.js"></script>
-		<script src="hms/assets/js/main.js"></script>
-		<script src="hms/assets/js/login.js"></script>
-		<script>
+		<script th:src="@{/hms/vendor/jquery/jquery.min.js}"></script>
+		<script th:src="@{/hms/vendor/bootstrap/js/bootstrap.min.js}"></script>
+		<script th:src="@{/hms/vendor/modernizr/modernizr.js}"></script>
+		<script th:src="@{/hms/vendor/jquery-cookie/jquery.cookie.js}"></script>
+		<script th:src="@{/hms/vendor/perfect-scrollbar/perfect-scrollbar.min.js}"></script>
+		<script th:src="@{/hms/vendor/switchery/switchery.min.js}"></script>
+		<script th:src="@{/hms/vendor/jquery-validation/jquery.validate.min.js}"></script>
+		<script th:src="@{/hms/assets/js/main.js}"></script>
+		<script th:src="@{/hms/assets/js/login.js}"></script>
+		<script th:inline="javascript">
 			jQuery(document).ready(function() {
 				Main.init();
 				Login.init();

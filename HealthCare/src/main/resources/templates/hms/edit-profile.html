@@ -4,30 +4,29 @@
 <head>
 	<title>User | Edit Profile</title>
 
-	<link
-		href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic"
-		rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="hms/vendor/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="hms/vendor/fontawesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="hms/vendor/themify-icons/themify-icons.min.css">
-	<link href="hms/vendor/animate.css/animate.min.css" rel="stylesheet" media="screen">
-	<link href="hms/vendor/perfect-scrollbar/perfect-scrollbar.min.css" rel="stylesheet" media="screen">
-	<link href="hms/vendor/switchery/switchery.min.css" rel="stylesheet" media="screen">
-	<link href="hms/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css" rel="stylesheet" media="screen">
-	<link href="hms/vendor/select2/select2.min.css" rel="stylesheet" media="screen">
-	<link href="hms/vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet"
-		media="screen">
-	<link href="hms/vendor/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" media="screen">
-	<link rel="stylesheet" href="hms/assets/css/styles.css">
-	<link rel="stylesheet" href="hms/assets/css/plugins.css">
-	<link rel="stylesheet" href="hms/assets/css/themes/theme-1.css" id="skin_color" />
+	<link th:href="@{http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic}" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" th:href="@{/hms/vendor/bootstrap/css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{/hms/vendor/fontawesome/css/font-awesome.min.css}">
+	<link rel="stylesheet" th:href="@{/hms/vendor/themify-icons/themify-icons.min.css}">
+	<link th:href="@{/hms/vendor/animate.css/animate.min.css}" rel="stylesheet" media="screen">
+	<link th:href="@{/hms/vendor/perfect-scrollbar/perfect-scrollbar.min.css}" rel="stylesheet" media="screen">
+	<link th:href="@{/hms/vendor/switchery/switchery.min.css}" rel="stylesheet" media="screen">
+	<link th:href="@{/hms/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css}" rel="stylesheet" media="screen">
+	<link th:href="@{/hms/vendor/select2/select2.min.css}" rel="stylesheet" media="screen">
+	<link th:href="@{/hms/vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css}" rel="stylesheet" media="screen">
+	<link th:href="@{/hms/vendor/bootstrap-timepicker/bootstrap-timepicker.min.css}" rel="stylesheet" media="screen">
+	<link rel="stylesheet" th:href="@{/hms/assets/css/styles.css}">
+	<link rel="stylesheet" th:href="@{/hms/assets/css/plugins.css}">
+	<link rel="stylesheet" th:href="@{/hms/assets/css/themes/theme-1.css}" id="skin_color" />
 
 
 </head>
 
 <body>
-	<div id="app">
+	<div id="app">		
+		<div th:insert="/hms/fragments/sidebar.html :: sidebar"></div>
 		<div class="app-content">
+			<div th:insert="/hms/fragments/header.html :: header"></div>
 
 			<!-- end: TOP NAVBAR -->
 			<div class="main-content">
@@ -155,32 +154,32 @@
 		<!-- end: FOOTER -->
 
 		<!-- start: SETTINGS -->
-
+		<div th:insert="/hms/fragments/setting.html :: setting"></div>
 		<!-- end: SETTINGS -->
 	</div>
 	<!-- start: MAIN JAVASCRIPTS -->
-	<script src="hms/vendor/jquery/jquery.min.js"></script>
-	<script src="hms/vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="hms/vendor/modernizr/modernizr.js"></script>
-	<script src="hms/vendor/jquery-cookie/jquery.cookie.js"></script>
-	<script src="hms/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-	<script src="hms/vendor/switchery/switchery.min.js"></script>
-	<!-- end: MAIN JAVASCRIPTS -->
-	<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
-	<script src="hms/vendor/maskedinput/jquery.maskedinput.min.js"></script>
-	<script src="hms/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
-	<script src="hms/vendor/autosize/autosize.min.js"></script>
-	<script src="hms/vendor/selectFx/classie.js"></script>
-	<script src="hms/vendor/selectFx/selectFx.js"></script>
-	<script src="hms/vendor/select2/select2.min.js"></script>
-	<script src="hms/vendor/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-	<script src="hms/vendor/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
-	<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
-	<!-- start: CLIP-TWO JAVASCRIPTS -->
-	<script src="hms/assets/js/main.js"></script>
-	<!-- start: JavaScript Event Handlers for this page -->
-	<script src="hms/assets/js/form-elements.js"></script>
-	<script>
+	<script th:src="@{/hms/vendor/jquery/jquery.min.js}"></script>
+		<script th:src="@{/hms/vendor/bootstrap/js/bootstrap.min.js}"></script>
+		<script th:src="@{/hms/vendor/modernizr/modernizr.js}"></script>
+		<script th:src="@{/hms/vendor/jquery-cookie/jquery.cookie.js}"></script>
+		<script th:src="@{/hms/vendor/perfect-scrollbar/perfect-scrollbar.min.js}"></script>
+		<script th:src="@{/hms/vendor/switchery/switchery.min.js}"></script>
+		<!-- end: MAIN JAVASCRIPTS -->
+		<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<script th:src="@{/hms/vendor/maskedinput/jquery.maskedinput.min.js}"></script>
+		<script th:src="@{/hms/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js}"></script>
+		<script th:src="@{/hms/vendor/autosize/autosize.min.js}"></script>
+		<script th:src="@{/hms/vendor/selectFx/classie.js}"></script>
+		<script th:src="@{/hms/vendor/selectFx/selectFx.js}"></script>
+		<script th:src="@{/hms/vendor/select2/select2.min.js}"></script>
+		<script th:src="@{/hms/vendor/bootstrap-datepicker/bootstrap-datepicker.min.js}"></script>
+		<script th:src="@{/hms/vendor/bootstrap-timepicker/bootstrap-timepicker.min.js}"></script>
+		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<!-- start: CLIP-TWO JAVASCRIPTS -->
+		<script th:src="@{/hms/assets/js/main.js}"></script>
+		<!-- start: JavaScript Event Handlers for this page -->
+		<script th:src="@{/hms/assets/js/form-elements.js}"></script>
+	<script th:inline="javascript">
 		jQuery(document).ready(function () {
 			Main.init();
 			FormElements.init();

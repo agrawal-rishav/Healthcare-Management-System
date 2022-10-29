@@ -78,7 +78,7 @@
 												
 												<td >
 												<div class="visible-md visible-lg hidden-sm hidden-xs">
-							<a href="" class="btn btn-transparent btn-lg" title="View Details"><i class="fa fa-file"></i></a>
+							<a th:href="@{/hms/admin/query-details}" class="btn btn-transparent btn-lg" title="View Details"><i class="fa fa-file"></i></a>
 												</div>
 												<div class="visible-xs visible-sm hidden-md hidden-lg">
 													<div class="btn-group" dropdown is-open="status.isopen">
@@ -126,7 +126,7 @@
 			<!-- end: FOOTER -->
 		
 			<!-- start: SETTINGS -->
-			
+			<div th:insert="/hms/admin/fragments/setting.html :: setting"></div>
 			<!-- end: SETTINGS -->
 		</div>
 		<!-- start: MAIN JAVASCRIPTS -->

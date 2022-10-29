@@ -5,7 +5,7 @@
 	<head>
 		<title>Doctor | Manage Patients</title>
 		
-		<link href="@{http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic}" rel="stylesheet" type="text/css" />
+		<link th:href="@{http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic}" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" th:href="@{/hms/doctor/vendor/bootstrap/css/bootstrap.min.css}">
 		<link rel="stylesheet" th:href="@{/hms/doctor/vendor/fontawesome/css/font-awesome.min.css}">
 		<link rel="stylesheet" th:href="@{/hms/doctor/vendor/themify-icons/themify-icons.min.css}">
@@ -70,7 +70,7 @@
 <td></td>
 <td>
 
-<a href=""><i class="fa fa-edit"></i></a> || <a href=""><i class="fa fa-eye"></i></a>
+<a th:href="@{/hms/doctor/edit-patient}"><i class="fa fa-edit"></i></a> || <a th:href="@{/hms/doctor/view-patient}"><i class="fa fa-eye"></i></a>
 
 </td>
 </tr>
@@ -88,7 +88,7 @@
 			<!-- end: FOOTER -->
 		
 			<!-- start: SETTINGS -->
-			
+			<div th:insert="/hms/fragments/setting.html :: setting"></div>
 			<!-- end: SETTINGS -->
 		</div>
 		<!-- start: MAIN JAVASCRIPTS -->

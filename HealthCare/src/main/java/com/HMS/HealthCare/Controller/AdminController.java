@@ -104,4 +104,30 @@ public class AdminController {
    public String getPatientSearch() {
         return "hms/admin/patient-search";
    }
+
+   @GetMapping("/hms/admin/change-password")
+   public String getChangePassword() {
+     return "hms/admin/change-password";
+   }
+
+   @GetMapping("/hms/admin/edit-doctor-specialization")
+   public String getEditDoctorSpecialization() {
+     return "hms/admin/edit-doctor-specialization";
+   }
+
+   @GetMapping("/hms/admin/edit-doctor")
+   public String getEditDoctor() {
+     return "hms/admin/edit-doctor";
+   }
+   
+
+   @GetMapping("/hms/admin/view-patient")
+   public String getViewPatient() {
+     return "hms/admin/view-patient";
+   }
+
+   @GetMapping("/hms/admin/query-details")
+   public String getQueryDetails() {
+     return "hms/admin/query-details";
+   }
 }

@@ -41,7 +41,7 @@
 								<span class="input-icon">
 									<input type="password" class="form-control password" th:field="*{password}" name="password" placeholder="Password">
 									<i class="fa fa-lock"></i>
-									 </span><a href="forgot-password.html">
+									 </span><a th:href="@{/hms/forgot-password}">
 									Forgot Password ?
 								</a>
 							</div>
@@ -53,7 +53,7 @@
 							</div>
 							<div class="new-account">
 								Don't have an account yet?
-								<a href="registration.html">
+								<a th:href="@{/hms/registeration}">
 									Create an account
 								</a>
 							</div>
