@@ -61,16 +61,16 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td class="center">.</td>
-<td class="hidden-xs"></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<tr th:each="patient : ${patients}">
+<td th:text="${patient.id}" class="center">.</td>
+<td th:text="${patient.patientname}" class="hidden-xs"></td>
+<td th:text="${patient.patientcontno}"></td>
+<td th:text="${patient.patientgender}"></td>
+<td th:text="${patient.creationdate}"></td>
+<td th:text="${patient.updationdate}"></td>
 <td>
 
-<a th:href="@{/hms/admin/view-patient}"><i class="fa fa-eye"></i></a>
+<a th:href="@{/hms/admin/view-patient/{id}(id=${patient.id})}"><i class="fa fa-eye"></i></a>
 
 </td>
 </tr>

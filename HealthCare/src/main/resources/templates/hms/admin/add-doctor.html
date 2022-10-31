@@ -89,12 +89,12 @@ error:function (){}
 												</div>
 												<div class="panel-body">
 									
-													<form role="form" name="adddoc" method="post" onSubmit="return valid();">
+													<form role="form" th:action="@{/hms/admin/add-doctor}" th:object="${doctor}" name="adddoc" method="post" onSubmit="return valid();">
 														<div class="form-group">
 															<label for="DoctorSpecialization">
 																Doctor Specialization
 															</label>
-							<select name="Doctorspecialization" class="form-control" required="true">
+							<select name="Doctorspecialization" th:field="*{specilization}" class="form-control" required="true">
 																<option value="">Select Specialization</option>
 																<option th:each="option : ${options}" th:value="${option}" th:text="${option}"></option>
 															</select>
@@ -104,7 +104,7 @@ error:function (){}
 															<label for="doctorname">
 																 Doctor Name
 															</label>
-					<input type="text" name="docname" class="form-control"  placeholder="Enter Doctor Name" required="true">
+					<input type="text" th:field="*{docname}" name="docname" class="form-control"  placeholder="Enter Doctor Name" required="true">
 														</div>
 
 
@@ -112,28 +112,28 @@ error:function (){}
 															<label for="address">
 																 Doctor Clinic Address
 															</label>
-					<textarea name="clinicaddress" class="form-control"  placeholder="Enter Doctor Clinic Address" required="true"></textarea>
+					<textarea name="clinicaddress" th:field="*{address}" class="form-control"  placeholder="Enter Doctor Clinic Address" required="true"></textarea>
 														</div>
 <div class="form-group">
 															<label for="fess">
 																 Doctor Consultancy Fees
 															</label>
-					<input type="text" name="docfees" class="form-control"  placeholder="Enter Doctor Consultancy Fees" required="true">
+					<input type="text" th:field="*{fees}" name="docfees" class="form-control"  placeholder="Enter Doctor Consultancy Fees" required="true">
 														</div>
 	
 <div class="form-group">
 									<label for="fess">
 																 Doctor Contact no
 															</label>
-					<input type="text" name="doccontact" class="form-control"  placeholder="Enter Doctor Contact no" required="true">
+					<input type="text" th:field="*{contactno}" name="doccontact" class="form-control"  placeholder="Enter Doctor Contact no" required="true">
 														</div>
 
 <div class="form-group">
 									<label for="fess">
 																 Doctor Email
 															</label>
-<input type="email" id="docemail" name="docemail" class="form-control"  placeholder="Enter Doctor Email id" required="true" onBlur="checkemailAvailability()">
-<span id="email-availability-status"></span>
+<input type="email" id="docemail" th:field="*{email}" name="docemail" class="form-control"  placeholder="Enter Doctor Email id" required="true" onBlur="checkemailAvailability()">
+<p th:text="${emailavailability}" style="color: red;"></p>
 </div>
 
 
@@ -143,7 +143,7 @@ error:function (){}
 															<label for="exampleInputPassword1">
 																 Password
 															</label>
-					<input type="password" name="npass" class="form-control"  placeholder="New Password" required="required">
+					<input type="password" th:field="*{password}" name="npass" class="form-control"  placeholder="New Password" required="required">
 														</div>
 														
 <div class="form-group">
@@ -151,7 +151,8 @@ error:function (){}
 																Confirm Password
 															</label>
 									<input type="password" name="cfpass" class="form-control"  placeholder="Confirm Password" required="required">
-														</div>
+									<p th:text="${passwordmatch}" style="color: red;"></p>
+								</div>
 														
 														
 														

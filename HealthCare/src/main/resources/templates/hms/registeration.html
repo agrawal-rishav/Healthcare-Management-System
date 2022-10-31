@@ -41,7 +41,7 @@ return true;
 				</div>
 				<!-- start: REGISTER BOX -->
 				<div class="box-register">
-					<form name="registration" id="registration"  method="post" onSubmit="return valid();">
+					<form name="registration" th:action="@{/register-patient}" th:object="${patient}" id="registration"  method="post" onSubmit="return valid();">
 						<fieldset>
 							<legend>
 								Sign Up
@@ -50,24 +50,27 @@ return true;
 								Enter your personal details below:
 							</p>
 							<div class="form-group">
-								<input type="text" class="form-control" name="full_name" placeholder="Full Name" required>
+								<input type="text" th:field="*{fullName}" class="form-control" name="full_name" placeholder="Full Name" required>
+								<p th:errors="*{fullName}" th:if="${#fields.hasErrors('fullName')}"></p>
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" name="address" placeholder="Address" required>
+								<input type="text" th:field="*{address}" class="form-control" name="address" placeholder="Address" required>
+								<p th:errors="${address}" th:if="${#fields.hasErrors('address')}"></p>
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" name="city" placeholder="City" required>
+								<input type="text" th:field="*{city}" class="form-control" name="city" placeholder="City" required>
+								<p th:errors="${city}" th:if="${#fields.hasErrors('city')}"></p>
 							</div>
 							<div class="form-group">
 								<label class="block">
 									Gender
 								</label>
 								<div class="clip-radio radio-primary">
-									<input type="radio" id="rg-female" name="gender" value="female" >
+									<input type="radio" th:field="*{sex}" th:value="${gender}" id="rg-female" name="gender" value="female" >
 									<label for="rg-female">
 										Female
 									</label>
-									<input type="radio" id="rg-male" name="gender" value="male">
+									<input type="radio" th:field="*{sex}" th:value="${gender}" id="rg-male" name="gender" value="male">
 									<label for="rg-male">
 										Male
 									</label>
@@ -78,18 +81,21 @@ return true;
 							</p>
 							<div class="form-group">
 								<span class="input-icon">
-									<input type="email" class="form-control" name="email" id="email" onBlur="userAvailability()"  placeholder="Email" required>
+									<input type="email" th:field="*{username}" class="form-control" name="email" id="email" onBlur="userAvailability()"  placeholder="Email" required>
+									<p  th:errors="${username}" th:if="${#fields.hasErrors('username')}"></p>
 									<i class="fa fa-envelope"></i> </span>
 									 <span id="user-availability-status1" style="font-size:12px;"></span>
 							</div>
 							<div class="form-group">
 								<span class="input-icon">
-									<input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+									<input type="password" th:field="*{password}" class="form-control" id="password" name="password" placeholder="Password" required>
+									<p  th:errors="${password}" th:if="${#fields.hasErrors('password')}"></p>
 									<i class="fa fa-lock"></i> </span>
 							</div>
 							<div class="form-group">
 								<span class="input-icon">
-									<input type="password" class="form-control"  id="password_again" name="password_again" placeholder="Password Again" required>
+									<input type="password" th:field="*{confirmPassword}" class="form-control"  id="password_again" name="password_again" placeholder="Password Again" required>
+									<p th:errors="${confirmPassword" th:if="${#fields.hasErrors('confirmPassword')}"></p>
 									<i class="fa fa-lock"></i> </span>
 							</div>
 							<div class="form-group">

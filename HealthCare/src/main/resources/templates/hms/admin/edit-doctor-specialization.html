@@ -58,14 +58,16 @@
 													<h5 class="panel-title">Edit Doctor Specialization</h5>
 												</div>
 												<div class="panel-body">
-								<p style="color:red;"></p>	
-													<form role="form" name="dcotorspcl" method="post" >
+								<p style="color:green;" th:text="${successful}"></p>	
+													<form th:action="@{/hms/admin/edit-doctor-specialization/{id}(id=${ids})}" th:object="${doctor}" role="form" name="dcotorspcl" method="post" >
 														<div class="form-group">
 															<label for="exampleInputEmail1">
 																Edit Doctor Specialization
 															</label>
 
-			<input type="text" name="doctorspecilization" class="form-control" value="">
+			<select th:field="*{specilization}" name="doctorspecilization" class="form-control" value="">
+				<option th:each="option : ${options}" th:text="${option}" th:value="${option}"></option>
+			</select>
 														</div>
 												
 														

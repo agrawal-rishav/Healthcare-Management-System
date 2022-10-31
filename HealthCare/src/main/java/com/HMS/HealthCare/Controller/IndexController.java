@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.HMS.HealthCare.Entity.Admin;
 import com.HMS.HealthCare.Entity.Contact;
 
 @Controller

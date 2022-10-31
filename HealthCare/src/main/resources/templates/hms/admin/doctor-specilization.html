@@ -58,12 +58,15 @@
 												</div>
 												<div class="panel-body">
 								<p style="color:red;"></p>	
-													<form role="form" name="dcotorspcl" method="post" >
+													<form th:action="@{/hms/admin/fetch-doctor-specilization}" role="form" name="dcotorspcl" method="post" >
 														<div class="form-group">
 															<label for="exampleInputEmail1">
 																Doctor Specialization
 															</label>
-							<input type="text" name="doctorspecilization" class="form-control"  placeholder="Enter Doctor Specialization">
+															<select name="option" class="form-control" value="">
+																<option value="" selected>Choose Specialization</option>
+																<option th:each="option : ${options}" th:text="${option}" th:value="${option}"></option>
+															</select>
 														</div>
 												
 														
@@ -105,17 +108,17 @@
 										<tbody>
 
 
-											<tr>
-												<td class="center">.</td>
-												<td class="hidden-xs"></td>
-												<td></td>
-												<td></td>
+											<tr th:each="doctor : ${doctors}">
+												<td th:text="${doctor.id}" class="center">.</td>
+												<td th:text="${doctor.specilization}" class="hidden-xs"></td>
+												<td th:text="${doctor.creationdate}"></td>
+												<td th:text="${doctor.updationdate}"></td>
 												
-												<td >
+												<td>
 												<div class="visible-md visible-lg hidden-sm hidden-xs">
-							<a th:href="@{/hms/admin/edit-doctor-specialization}" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
+							<a th:href="@{/hms/admin/edit-doctor-specialization/{id}(id=${doctor.id})}" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
 													
-	<a href="" th:onClick="return confirm('Are you sure you want to delete?')"class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
+	<a th:href="@{/hms/admin/remove-doctor/{id}(id=${doctor.id})}" th:onClick="return confirm('Are you sure you want to delete?')"class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
 												</div>
 												<div class="visible-xs visible-sm hidden-md hidden-lg">
 													<div class="btn-group" dropdown is-open="status.isopen">

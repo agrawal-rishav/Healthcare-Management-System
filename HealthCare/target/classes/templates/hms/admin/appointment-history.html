@@ -71,16 +71,16 @@
 										<tbody>
 
 
-											<tr>
-												<td class="center">.</td>
-												<td class="hidden-xs"></td>
-												<td class="hidden-xs"></td>
-												<td></td>
-												<td></td>
-												<td> / 	</td>
-												<td></td>
-												<td></td>
-												<td >
+											<tr th:each="table : ${tables}">
+												<td th:text="${table.id}" class="center">.</td>
+												<td th:text="${table.doctorname}" class="hidden-xs"></td>
+												<td th:text="${table.patientname}" class="hidden-xs"></td>
+												<td th:text="${table.specialization}"></td>
+												<td th:text="${table.fees}"></td>
+												<td th:text="${table.appointmentdatetime}"></td>
+												<td th:text="${table.appointmentcreationdate}"></td>
+												<td th:text="${table.status}"></td>
+												<td th:text="${table.action}" >
 												<div class="visible-md visible-lg hidden-sm hidden-xs">
 							
 												</div>
