@@ -74,3 +74,17 @@ INSERT INTO `users` (`id`, `fullname`, `address`, `city`, `gender`, `email`, `pa
 
 
 
+
+INSERT INTO `doctorslog` (`id`, `uid`, `username`, `userip`, `logintime`, `logout`, `status`) VALUES
+(1, 5, 'Sanjeev', 0, '2019-11-06 04:52:42', '2019-11-06 05:52:42', 0),
+(2, 3, 'Nitesh Kumar', 0, '2019-11-06 05:22:42', '2019-11-06 06:22:42', 1),
+(3, 2, 'Sarita Pandey', 0, '2019-11-06 08:19:42', '2019-11-06 09:19:42', 1),
+(4, 6, 'Amrita', 0, '2019-11-06 14:52:24', '2019-11-06 16:52:24', 0);
+
+
+
+INSERT INTO `userlog` (`id`, `uid`, `username`, `userip`, `logintime`, `logout`, `status`) VALUES
+(1, 5, 'Amit Kumar', 0, '2019-11-06 04:52:42', '2019-11-06 05:52:42', 0),
+(2, 3, 'Amit', 0, '2019-11-06 05:22:42', '2019-11-06 06:22:42', 1),
+(3, 2, 'Sarita Pandey', 0, '2019-11-06 08:19:42', '2019-11-06 09:19:42', 1),
+(4, 6, 'Test User', 0, '2019-11-06 14:52:24', '2019-11-06 16:52:24', 0);

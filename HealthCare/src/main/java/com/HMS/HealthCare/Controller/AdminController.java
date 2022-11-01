@@ -34,10 +34,12 @@ import com.HMS.HealthCare.Service.AppointmentService;
 import com.HMS.HealthCare.Service.AppointmentTableService;
 import com.HMS.HealthCare.Service.DoctorDtoService;
 import com.HMS.HealthCare.Service.DoctorService;
+import com.HMS.HealthCare.Service.DoctorslogService;
 import com.HMS.HealthCare.Service.MedicalHistoryService;
 import com.HMS.HealthCare.Service.PatientService;
 import com.HMS.HealthCare.Service.TblcontactusService;
 import com.HMS.HealthCare.Service.UserService;
+import com.HMS.HealthCare.Service.UserslogService;
 
 @Controller
 //@RequestMapping("/hms/admin")
@@ -59,6 +61,10 @@ public class AdminController {
      private AppointmentTableService aTableService;
      @Autowired
      private TblcontactusService tblcontactusService;
+     @Autowired
+     private DoctorslogService doctorslogService;
+     @Autowired
+     private UserslogService userslogService;
 
      @GetMapping("/hms/admin")
      public String getAdminLoginPage(Model model) {
@@ -221,12 +227,14 @@ public class AdminController {
      }
 
      @GetMapping("/hms/admin/doctor-logs")
-     public String getDoctorLogs() {
+     public String getDoctorLogs(Model model) {
+          model.addAttribute("doctorslog", doctorslogService.getAllDoctors());
           return "hms/admin/doctor-logs";
      }
 
      @GetMapping("/hms/admin/user-logs")
-     public String getUserLogs() {
+     public String getUserLogs(Model model) {
+          model.addAttribute("doctorslog", userslogService.getAllUsers());
           return "hms/admin/user-logs";
      }
 

@@ -10,7 +10,7 @@ public class Userlog {
     private Long id;
     
     private Long uid;
-    private String usename;
+    private String username;
     private String userip;
     private String logintime;
     private String logout;
@@ -18,10 +18,10 @@ public class Userlog {
 
     public Userlog() {}
     
-    public Userlog(Long id, Long uid, String usename, String userip, String logintime, String logout, Integer status) {
+    public Userlog(Long id, Long uid, String username, String userip, String logintime, String logout, Integer status) {
         this.id = id;
         this.uid = uid;
-        this.usename = usename;
+        this.username = username;
         this.userip = userip;
         this.logintime = logintime;
         this.logout = logout;
@@ -39,11 +39,11 @@ public class Userlog {
     public void setUid(Long uid) {
         this.uid = uid;
     }
-    public String getUsename() {
-        return usename;
+    public String getUsername() {
+        return username;
     }
-    public void setUsename(String usename) {
-        this.usename = usename;
+    public void setUsername(String username) {
+        this.username = username;
     }
     public String getUserip() {
         return userip;

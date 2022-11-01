@@ -71,19 +71,15 @@
 										<tbody>
 
 
-											<tr>
-												<td class="center">.</td>
-												<td class="hidden-xs"></td>
-												<td class="hidden-xs"></td>
-												<td></td>
-												<td></td>
-												<td>
-												</td>
-												
-												<td>
-
-
-</td>
+											<tr th:each="doctor : ${doctorslog}">
+												<td th:text="${doctor.id}" class="center">.</td>
+												<td th:text="${doctor.uid}" class="hidden-xs"></td>
+												<td th:text="${doctor.username}" class="hidden-xs"></td>
+												<td th:text="${doctor.userip}"></td>
+												<td th:text="${doctor.logintime}"></td>
+												<td th:text="${doctor.logout}"></td>
+												<td th:if="${doctor.status == 0}">Failed</td>
+												<td th:if="${doctor.status == 1}">Success</td>
 												
 											</tr>
 											
