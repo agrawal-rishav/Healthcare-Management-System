@@ -33,6 +33,8 @@ public class AppointmentTableService {
             for(Appointment app : li) {
                 Doctors doctor = doctorService.getDoctorById(Long.valueOf(app.getDoctorid()));
                 Users patient = userService.getUserById(Long.valueOf(app.getUserid()));
+                if(doctor == null || patient == null)
+                    continue;
                 String currentStatus = ((app.getDoctorstatus().equals("1")) ? "Active" : "Cancelled by Doctor");
                 String action = ((app.getDoctorstatus().equals("1")) ? "No action Yet" : "Cancelled");
                 AppointmentTable table = new AppointmentTable(count++, doctor.getDoctorname(), patient.getFullname(),

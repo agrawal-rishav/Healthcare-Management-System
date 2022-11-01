@@ -60,23 +60,23 @@
 
 											<tr>
 												<th>Full Name</th>
-												<td></td>
+												<td th:text="${name}"></td>
 											</tr>
 
 											<tr>
 												<th>Email Id</th>
-												<td></td>
+												<td th:text="${email}"></td>
 											</tr>
 											<tr>
 												<th>Conatact Numner</th>
-												<td></td>
+												<td th:text="${contact}"></td>
 											</tr>
 											<tr>
 												<th>Message</th>
-												<td></td>
+												<td th:text="${message}"></td>
 												</tr>
-	
-<form name="query" method="post">
+<div th:if="${showform}">
+<form th:action="@{/hms/admin/update-query/{id}(id=${id})}" name="query" method="post">
 	<tr>
 												<th>Admin Remark</th>
 												<td><textarea name="adminremark" class="form-control" required="true"></textarea></td>
@@ -92,18 +92,18 @@
 												</tr>
 
 </form>												
-																						
-	
+</div>																						
+	<div th:if="${!showform}">
 	<tr>
 												<th>Admin Remark</th>
-												<td></td>
+												<td th:text="${remark}"></td>
 												</tr>
 
 <tr>
 												<th>Last Updatation Date</th>
-												<td></td>
+												<td th:text="${updationdate}"></td>
 												</tr>
-											
+											</div>										
 											
 											
 											

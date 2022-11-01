@@ -68,16 +68,16 @@
 										<tbody>
 
 
-											<tr>
-												<td class="center">.</td>
-												<td class="hidden-xs"></td>
-												<td></td>
-												<td></td>
-												<td></td>
+											<tr th:each="query : ${queries}">
+												<td th:text="${query.id}" class="center">.</td>
+												<td th:text="${query.fullname}" class="hidden-xs"></td>
+												<td th:text="${query.email}"></td>
+												<td th:text="${query.contactno}"></td>
+												<td th:text="${query.message}"></td>
 												
 												<td >
 												<div class="visible-md visible-lg hidden-sm hidden-xs">
-							<a th:href="@{/hms/admin/query-details}" class="btn btn-transparent btn-lg" title="View Details"><i class="fa fa-file"></i></a>
+							<a th:href="@{/hms/admin/query-details/{email}(email=${query.email})}" class="btn btn-transparent btn-lg" title="View Details"><i class="fa fa-file"></i></a>
 												</div>
 												<div class="visible-xs visible-sm hidden-md hidden-lg">
 													<div class="btn-group" dropdown is-open="status.isopen">

@@ -32,6 +32,15 @@ public class Tblcontactus {
         this.lastupdationdate = lastupdationdate;
         this.isread = isread;
     }
+
+    public Tblcontactus(Long id, String fullname, String email, Long contactno, String message) {
+        this.id = id;
+        this.fullname = fullname;
+        this.email = email;
+        this.contactno = contactno;
+        this.message = message;
+    }
+
     public Long getId() {
         return id;
     }

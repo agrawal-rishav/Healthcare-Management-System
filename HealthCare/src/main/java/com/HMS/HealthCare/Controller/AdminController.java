@@ -1,7 +1,9 @@
 package com.HMS.HealthCare.Controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,6 +25,7 @@ import com.HMS.HealthCare.Entity.Appointment;
 import com.HMS.HealthCare.Entity.Contact;
 import com.HMS.HealthCare.Entity.Doctors;
 import com.HMS.HealthCare.Entity.Patient;
+import com.HMS.HealthCare.Entity.Tblcontactus;
 import com.HMS.HealthCare.Entity.Tblmedicalhistory;
 import com.HMS.HealthCare.Entity.Tblpatient;
 import com.HMS.HealthCare.Repository.DoctorRepository;
@@ -33,6 +36,7 @@ import com.HMS.HealthCare.Service.DoctorDtoService;
 import com.HMS.HealthCare.Service.DoctorService;
 import com.HMS.HealthCare.Service.MedicalHistoryService;
 import com.HMS.HealthCare.Service.PatientService;
+import com.HMS.HealthCare.Service.TblcontactusService;
 import com.HMS.HealthCare.Service.UserService;
 
 @Controller
@@ -53,6 +57,8 @@ public class AdminController {
      private AppointmentService appointmentService;
      @Autowired
      private AppointmentTableService aTableService;
+     @Autowired
+     private TblcontactusService tblcontactusService;
 
      @GetMapping("/hms/admin")
      public String getAdminLoginPage(Model model) {
@@ -161,12 +167,56 @@ public class AdminController {
      }
 
      @GetMapping("/hms/admin/unread-queries")
-     public String getUnreadQueries() {
+     public String getUnreadQueries(Model model) {
+          model.addAttribute("queries", tblcontactusService.getUnreadQueries());
           return "hms/admin/unread-queries";
      }
 
+     @GetMapping("/hms/admin/query-details/{email}")
+     public String getQueryDetails(@PathVariable("email") String email, Model model) {
+          Tblcontactus query = tblcontactusService.getQuery(email);
+          model.addAttribute("name", query.getFullname());
+          model.addAttribute("email", query.getEmail());
+          model.addAttribute("contact", query.getContactno());
+          model.addAttribute("message", query.getMessage());
+          model.addAttribute("remark", query.getAdminremark());
+          model.addAttribute("updationdate", query.getLastupdationdate());
+          model.addAttribute("id", Long.valueOf(query.getId()));
+          if(query.getAdminremark() == null  ||  query.getAdminremark().equals(""))
+               model.addAttribute("showform", true);
+          return "hms/admin/query-details";
+     }
+
+     @GetMapping("/hms/admin/query-detail/{id}")
+     public String getQueryDetails(@PathVariable("id") Long id, Model model) {
+          Tblcontactus query = tblcontactusService.getById(id);
+          model.addAttribute("name", query.getFullname());
+          model.addAttribute("email", query.getEmail());
+          model.addAttribute("contact", query.getContactno());
+          model.addAttribute("message", query.getMessage());
+          model.addAttribute("remark", query.getAdminremark());
+          model.addAttribute("updationdate", query.getLastupdationdate());
+          model.addAttribute("id", Long.valueOf(query.getId()));
+          model.addAttribute("showform", false);
+          if(query.getAdminremark() == null  ||  query.getAdminremark().equals(""))
+               model.addAttribute("showform", true);
+          return "hms/admin/query-details";
+     }
+
+     @PostMapping("/hms/admin/update-query/{id}")
+     public String updateQuery(@PathVariable("id") Long id, @Valid String adminremark, Model model) {
+          Tblcontactus query = tblcontactusService.getById(id);
+          query.setAdminremark(adminremark);
+          query.setIsread(1);
+          query.setLastupdationdate(getCurrentTimestamp());
+          tblcontactusService.saveQuery(query);
+          model.addAttribute("queries", tblcontactusService.getReadQueries());
+          return "hms/admin/read-query";
+     }
+
      @GetMapping("/hms/admin/read-query")
-     public String getReadQuery() {
+     public String getReadQuery(Model model) {
+          model.addAttribute("queries", tblcontactusService.getReadQueries());
           return "hms/admin/read-query";
      }
 
@@ -258,10 +308,7 @@ public class AdminController {
           return getEditDoctor(id, model);
      }
 
-     @GetMapping("/hms/admin/query-details")
-          public String getQueryDetails() {
-          return "hms/admin/query-details";
-     }
+     
 
      public DoctorDto setPredefinedValue(Doctors doctor) {
           DoctorDto doctordto = new DoctorDto();
@@ -277,5 +324,11 @@ public class AdminController {
      public List<String> getDoctorSpecializationList() {
           return new ArrayList<>(Arrays.asList("Gynaecologist", "General Physician", "Dermatologist", "Homeopath", "Ayurveda", "Dentist", "ENT Specialist", "Demo Test", "Bones Specialist"));
      }
+
+     public String getCurrentTimestamp() {
+          SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+          Date date = new Date();
+          return formatter.format(date).toString();
+      }
 
 }
