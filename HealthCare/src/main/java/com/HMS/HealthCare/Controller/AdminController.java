@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -243,11 +244,38 @@ public class AdminController {
           return "hms/admin/between-dates-reports";
      }
 
+     @PostMapping("/hms/admin/get-reports")
+     public String getBetweenReports(@RequestParam("fromdate")  String fromdate,
+                                     @RequestParam("todate")  String todate, 
+                                     Model model) {
+                                        System.out.println("From date = " + fromdate);
+                                        System.out.println("To   date = " + todate);
+                                        model.addAttribute("reports", patientService.getPatientsByDate(fromdate, todate));
+                                        model.addAttribute("fromdate", fromdate);
+                                        model.addAttribute("todate", todate);
+                                        return "hms/admin/betweendates-detailsreports";
+                                     }
+
      @GetMapping("/hms/admin/patient-search")
      public String getPatientSearch() {
           return "hms/admin/patient-search";
      }
 
+     @PostMapping("/hms/admin/search-patient")
+     public String searchPatient(@RequestParam("searchdata") String search, Model model) {
+          List<Tblpatient> li = patientService.getPatientBynameOrNumber(search);
+          model.addAttribute("keyword", search);
+          model.addAttribute("showtable", false);
+          model.addAttribute("message", "");
+          if(li.size() != 0) {
+               model.addAttribute("patients", li);
+               model.addAttribute("showtable", true);
+          } else {
+               model.addAttribute("message", "No record found");
+          }
+          return "hms/admin/patient-search";
+     } 
+     
      @GetMapping("/hms/admin/change-password")
      public String getChangePassword() {
      return "hms/admin/change-password";
