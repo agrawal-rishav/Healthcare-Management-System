@@ -23,24 +23,23 @@
 				</div>
 
 				<div class="box-login">
-					<form class="form-login" method="post" th:action="@{/login-patient}" th:object="${patient}">
+					<form class="form-login" method="post" th:action="@{/login-patient}" >
 						<fieldset>
 							<legend>
 								Sign in to your account
 							</legend>
-							<p th:if="${message}" th:text="${message}"></p>
 							<p>
 								Please enter your name and password to log in.<br />
-								<span style="color:red;"></span>
+								<p th:text="${message}" style="color: red;"></p>
 							</p>
 							<div class="form-group">
 								<span class="input-icon">
-									<input type="text" class="form-control" th:field="*{username}" name="username" placeholder="Username">
+									<input type="text" class="form-control" name="username" placeholder="Username">
 									<i class="fa fa-user"></i> </span>
 							</div>
 							<div class="form-group form-actions">
 								<span class="input-icon">
-									<input type="password" class="form-control password" th:field="*{password}" name="password" placeholder="Password">
+									<input type="password" class="form-control password" name="password" placeholder="Password">
 									<i class="fa fa-lock"></i>
 									 </span><a th:href="@{/hms/forgot-password}">
 									Forgot Password ?

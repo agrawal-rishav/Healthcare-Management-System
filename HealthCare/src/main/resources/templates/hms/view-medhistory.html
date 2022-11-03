@@ -50,30 +50,30 @@
 <td colspan="4" style="font-size:20px;color:blue">
  Patient Details</td></tr>
 
-    <tr>
+ <tr>
     <th scope>Patient Name</th>
-    <td></td>
+    <td th:text="${name}"></td>
     <th scope>Patient Email</th>
-    <td></td>
+    <td th:text="${email}"></td>
   </tr>
   <tr>
     <th scope>Patient Mobile Number</th>
-    <td></td>
+    <td th:text="${contactno}"></td>
     <th>Patient Address</th>
-    <td></td>
+    <td th:text="${address}"></td>
   </tr>
     <tr>
     <th>Patient Gender</th>
-    <td></td>
+    <td th:text="${gender}"></td>
     <th>Patient Age</th>
-    <td></td>
+    <td th:text="${age}"></td>
   </tr>
   <tr>
     
     <th>Patient Medical History(if any)</th>
-    <td></td>
+    <td th:text="${history}"></td>
      <th>Patient Reg Date</th>
-    <td></td>
+    <td th:text="${regdate}"></td>
   </tr>
  
 
@@ -91,15 +91,15 @@
 <th>Medical Prescription</th>
 <th>Visit Date</th>
 </tr>
-<tr>
-  <td></td>
- <td></td>
- <td></td>
- <td></td> 
-  <td></td>
-  <td></td>
-  <td></td> 
-</tr>
+<tr th:each="his : ${history}">
+	<td th:text="${his.id}"></td>
+	<td th:text="${his.bloodpressure}"></td>
+	<td th:text="${his.weight}"></td>
+	<td th:text="${his.bloodsugar}"></td> 
+	<td th:text="${his.temperature}"></td>
+	<td th:text="${his.medicalpres}"></td>
+	<td th:text="${his.creationdate}"></td> 
+  </tr>
 </table>
                           
 </div>

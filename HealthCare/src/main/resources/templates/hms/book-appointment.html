@@ -79,7 +79,7 @@ function getfee(val) {
 						<div class="container-fluid container-fullw bg-white">
 							<div class="row">
 								<div class="col-md-12">
-									
+									<p th:if="${message}" style="color: green;" th:text="${message}"></p>
 									<div class="row margin-top-30">
 										<div class="col-lg-8 col-md-12">
 											<div class="panel panel-white">
@@ -88,34 +88,22 @@ function getfee(val) {
 												</div>
 												<div class="panel-body">
 								<p style="color:red;"></p>	
-													<form role="form" name="book" method="post" >
+													<form th:action="@{/hms/book-appointment}" role="form" name="book" method="post" >
 														
 
 
-<div class="form-group">
+<div class="form-group">									
 															<label for="DoctorSpecialization">
 																Doctor Specialization
 															</label>
-							<select name="Doctorspecialization" class="form-control" th:onChange="getdoctor(this.value);" required="required">
+							<select name="Doctorspecialization" class="form-control" required="required">
 																<option value="">Select Specialization</option>
 
-																<option value="">
+																<option th:each="special : ${specialization}" th:value="${special}" th:text="${special}" value="">
 																	
 																</option>
 																
 															</select>
-														</div>
-
-
-
-
-														<div class="form-group">
-															<label for="doctor">
-																Doctors
-															</label>
-						<select name="doctor" class="form-control" id="doctor" th:onChange="getfee(this.value);" required="required">
-						<option value="">Select Doctor</option>
-						</select>
 														</div>
 
 
@@ -126,7 +114,7 @@ function getfee(val) {
 															<label for="consultancyfees">
 																Consultancy Fees
 															</label>
-					<select name="fees" class="form-control" id="fees"  readonly>
+					<select name="fees" th:text="${fees}" class="form-control" id="fees"  readonly>
 						
 						</select>
 														</div>

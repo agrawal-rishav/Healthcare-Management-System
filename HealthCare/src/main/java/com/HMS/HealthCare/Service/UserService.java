@@ -30,4 +30,21 @@ public class UserService {
         return userRepository.findById(id).get();
     }
 
+    public Users getUserByEmail(String email, String password) {
+        List<Users> li = getAllUsers();
+        for(Users user : li) {
+            if(email.equalsIgnoreCase(user.getEmail())  &&  password.equals(user.getPassword()))
+                return user;
+        }
+        return null;
+    }
+
+    public void updateUser(Users user, Long id) {
+        Users use = userRepository.findById(id).get();
+        use.setAddress(user.getAddress());
+        use.setCity(user.getCity());
+        use.setFullname(user.getFullname());
+        userRepository.save(use);
+    }
+
 }

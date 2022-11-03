@@ -104,4 +104,15 @@ public class DoctorService {
         Date date = new Date();
         return formatter.format(date).toString();
     }
+
+    public List<Doctors> fetchBySpecialization(String special) {
+        List<Doctors> li = getAllDoctors();
+        for(int i=0; i<li.size(); ) {
+            if(!li.get(i).getSpecilization().equals(special))
+                li.remove(i);
+            else
+                i++;
+        }
+        return li;
+    }
 }

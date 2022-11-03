@@ -61,18 +61,18 @@
 											</div>
 											<div class="panel-body">
 
-												<h4>'s Profile</h4>
-												<p><b>Profile Reg. Date: </b></p>
-												<p><b>Profile Last Updation Date: </b></p>
+												<h4>[[${username}]]'s Profile</h4>
+												<p><b>Profile Reg. Date: [[${creationdate}]]</b></p>
+												<p><b>Profile Last Updation Date: [[${updationdate}]]</b></p>
 												<hr />
-												<form role="form" name="edit" method="post">
+												<form th:action="@{/hms/update-profile}" th:object="${user}" role="form" name="edit" method="post">
 
 
 													<div class="form-group">
 														<label for="fname">
 															User Name
 														</label>
-														<input type="text" name="fname" class="form-control" value="">
+														<input type="text" th:field="*{fullname}" name="fname" class="form-control" value="">
 													</div>
 
 
@@ -80,35 +80,22 @@
 														<label for="address">
 															Address
 														</label>
-														<textarea name="address" class="form-control"></textarea>
+														<textarea th:field="*{address}" name="address" class="form-control"></textarea>
 													</div>
 													<div class="form-group">
 														<label for="city">
 															City
 														</label>
-														<input type="text" name="city" class="form-control"
+														<input type="text" th:field="*{city}" name="city" class="form-control"
 															required="required" value="">
 													</div>
 
-													<div class="form-group">
-														<label for="gender">
-															Gender
-														</label>
-
-														<select name="gender" class="form-control" required="required">
-															<option value=""></option>
-															<option value="male">Male</option>
-															<option value="female">Female</option>
-															<option value="other">Other</option>
-														</select>
-
-													</div>
 
 													<div class="form-group">
 														<label for="fess">
 															User Email
 														</label>
-														<input type="email" name="uemail" class="form-control"
+														<input th:field="*{email}" type="email" name="uemail" class="form-control"
 															readonly="readonly" value="">
 														<a href="change-emaild.html">Update your email id</a>
 													</div>

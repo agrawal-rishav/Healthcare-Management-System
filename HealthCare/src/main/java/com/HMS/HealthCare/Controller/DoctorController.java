@@ -233,6 +233,7 @@ public class DoctorController {
         model.addAttribute("ids", id);
         model.addAttribute("creationdate", date);
         model.addAttribute("patient", patient);
+        model.addAttribute("username", doctorname);
         return "hms/doctor/edit-patient";
     }
 
