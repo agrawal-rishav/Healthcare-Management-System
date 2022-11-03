@@ -298,7 +298,6 @@ public class AdminController {
 
      @PostMapping("hms/admin/fetch-doctor-specilization")
      public String fetchDoctorSpecialization(@Valid String option, Model model) {
-          System.out.println("Specialization = " + option);
           List<Doctors> li = doctorService.getDoctorBySpecialization(option);
           model.addAttribute("doctors", li);
           System.out.println(li);

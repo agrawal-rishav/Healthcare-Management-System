@@ -59,5 +59,9 @@ public class PatientService {
         }
         return ans;
     }
+
+    public void savePatient(Tblpatient patient) {
+        patientRepository.save(patient);
+    }
     
 }

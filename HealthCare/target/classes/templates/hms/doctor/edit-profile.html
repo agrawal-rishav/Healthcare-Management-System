@@ -44,6 +44,7 @@
 								</ol>
 							</div>
 						</section>
+						<h5 style="color: green; font-size:18px;" th:text="${updationDetail}"></h5>
 						<!-- end: PAGE TITLE -->
 						<!-- start: BASIC EXAMPLE -->
 						<div class="container-fluid container-fullw bg-white">
@@ -58,33 +59,27 @@
 												</div>
 												<div class="panel-body">
 									
-<h4>'s Profile</h4>
-<p><b>Profile Reg. Date: </b></p>
+<h4>[[${doctorname}]]'s Profile</h4>
+<p><b>Profile Reg. Date: </b>[[${regdate}]]</p>
 
-<p><b>Profile Last Updation Date: </b></p>
+<p><b>Profile Last Updation Date: </b>[[${updationdate}]]</p>
 
 <hr />
-													<form role="form" name="adddoc" method="post" onSubmit="return valid();">
+													<form role="form" th:action="@{/hms/doctor/update-profile}" name="adddoc" method="post" th:object="${doctor}" onSubmit="return valid();">
 														<div class="form-group">
 															<label for="DoctorSpecialization">
 																Doctor Specialization
 															</label>
-							<select name="Doctorspecialization" class="form-control" required="required">
-					<option value="">
-					</option>
-
-																<option value="">
-																	
-																</option>
-																
-															</select>
+							<select th:field="*{specilization}" name="Doctorspecialization" class="form-control" required="required">
+								<option th:each="option : ${options}" th:value="${option}" th:text="${option}" value=""></option>
+							</select>
 														</div>
 
 <div class="form-group">
 															<label for="doctorname">
 																 Doctor Name
 															</label>
-	<input type="text" name="docname" class="form-control" value="" >
+	<input type="text" th:field="*{docname}" name="docname" class="form-control" value="" >
 														</div>
 
 
@@ -92,27 +87,27 @@
 															<label for="address">
 																 Doctor Clinic Address
 															</label>
-					<textarea name="clinicaddress" class="form-control"></textarea>
+					<textarea th:field="*{address}" name="clinicaddress" class="form-control"></textarea>
 														</div>
 <div class="form-group">
 															<label for="fess">
 																 Doctor Consultancy Fees
 															</label>
-		<input type="text" name="docfees" class="form-control" required="required"  value="" >
+		<input type="text" th:field="*{fees}" name="docfees" class="form-control" required="required"  value="" >
 														</div>
 	
 <div class="form-group">
 									<label for="fess">
 																 Doctor Contact no
 															</label>
-					<input type="text" name="doccontact" class="form-control" required="required"  value="">
+					<input type="text" th:field="*{contactno}" name="doccontact" class="form-control" required="required"  value="">
 														</div>
 
 <div class="form-group">
 									<label for="fess">
 																 Doctor Email
 															</label>
-					<input type="email" name="docemail" class="form-control"  readonly="readonly"  value="">
+					<input type="email" th:field="*{email}" name="docemail" class="form-control"  readonly="readonly"  value="">
 														</div>
 
 

@@ -45,6 +45,15 @@ public class DoctorService {
         return li;
     }
 
+    public Doctors getDoctorByUsernameAndPassword(String username, String password) {
+        List<Doctors> li = getAllDoctors();
+        for(Doctors doctor : li) {
+            if(doctor.getDocemail().equalsIgnoreCase(username)  &&  doctor.getPassword().equals(password))
+                return doctor;
+        }
+        return null;
+    }
+
     public void updateDoctorById(DoctorDto doctordto, Long id) {
         Optional<Doctors> option = doctorRepository.findById(id);
         Doctors doctor = option.get();
@@ -59,6 +68,7 @@ public class DoctorService {
 
         doctorRepository.save(doctor);
     }
+
 
     public boolean checkEmailAvailability(String username) {
         Iterable<Doctors> it = doctorRepository.findAll();

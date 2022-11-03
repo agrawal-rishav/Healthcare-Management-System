@@ -52,7 +52,7 @@
 <thead>
 <tr>
 <th class="center">#</th>
-<th>Patient Name</th>
+<th class="hidden-xs">Patient  Name</th>
 <th>Patient Contact Number</th>
 <th>Patient Gender </th>
 <th>Creation Date </th>
@@ -61,16 +61,16 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td class="center">.</td>
-<td class="hidden-xs"></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<tr th:each="patient : ${patients}">
+<td th:text="${patient.id}" class="center">.</td>
+<td th:text="${patient.patientname}"></td>
+<td th:text="${patient.patientcontno}" class="hidden-xs"></td>
+<td th:text="${patient.patientgender}"></td>
+<td th:text="${patient.creationdate}"></td>
+<td th:text="${patient.updationdate}"></td>
 <td>
 
-<a th:href="@{/hms/doctor/edit-patient}"><i class="fa fa-edit"></i></a> || <a th:href="@{/hms/doctor/view-patient}"><i class="fa fa-eye"></i></a>
+<a th:href="@{/hms/doctor/edit-patient/{id}(id=${patient.id})}"><i class="fa fa-edit"></i></a> || <a th:href="@{/hms/doctor/view-patient/{id}(id=${patient.id})}"><i class="fa fa-eye"></i></a>
 
 </td>
 </tr>

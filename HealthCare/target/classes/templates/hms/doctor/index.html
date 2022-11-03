@@ -26,7 +26,7 @@
 				</div>
 
 				<div class="box-login">
-					<form class="form-login" method="post" th:action="@{/login-doctor}" th:object="${doctor}">
+					<form class="form-login" method="post" th:action="@{/login-doctor}">
 						<fieldset>
 							<legend>
 								Sign in to your account
@@ -37,14 +37,15 @@
 							</p>
 							<div class="form-group">
 								<span class="input-icon">
-									<input type="text" class="form-control" th:field="*{username}" name="username" placeholder="Username">
+									<input type="text" class="form-control" name="username" placeholder="Username">
 									<i class="fa fa-user"></i> </span>
 							</div>
 							<div class="form-group form-actions">
 								<span class="input-icon">
-									<input type="password" class="form-control password" th:field="*{password}" name="password" placeholder="Password">
+									<input type="password" class="form-control password" name="password" placeholder="Password">
 									<i class="fa fa-lock"></i>
 									 </span>
+									 <p th:if="${isNotValid}" style="color: red;">Invalid Username or Password</p>
 									 <a th:href="@{/hms/doctor/forgot-password}">
 									Forgot Password ?
 								</a>

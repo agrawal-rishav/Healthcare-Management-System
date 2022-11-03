@@ -62,30 +62,20 @@
 												<th>Appointment Date / Time </th>
 												<th>Appointment Creation Date  </th>
 												<th>Current Status</th>
-												<th>Action</th>
 												
 											</tr>
 										</thead>
 										<tbody>
 
 
-											<tr>
-												<td class="center">.</td>
-												<td class="hidden-xs"></td>
-												<td></td>
-												<td></td>
-												<td> /</td>
-												<td></td>
-												<td></td>
-												<td >
-												<div class="visible-md visible-lg hidden-sm hidden-xs">
-							
-
-													
-	<a href="" onClick="return confirm('Are you sure you want to cancel this appointment ?')"class="btn btn-transparent btn-xs tooltips" title="Cancel Appointment" tooltip-placement="top" tooltip="Remove">Cancel</a>
-	
-												</div>
-												</td>
+											<tr th:each="app : ${appointment}">
+												<td th:text="${app.id}" class="center">.</td>
+												<td th:text="${app.patientname}" class="hidden-xs"></td>
+												<td th:text="${app.specialization}"></td>
+												<td th:text="${app.fees}"></td>
+												<td th:text="${app.appointmentdatetime}"></td>
+												<td th:text="${app.appointmentcreationdate}"> /</td>
+												<td th:text="${app.status}"></td>
 											</tr>
 											
 											

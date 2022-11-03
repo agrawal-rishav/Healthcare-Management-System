@@ -33,14 +33,14 @@
 <section id="page-title">
 <div class="row">
 <div class="col-sm-8">
-<h1 class="mainTitle">Patient | Add Patient</h1>
+<h1 class="mainTitle">Patient | Edit Patient</h1>
 </div>
 <ol class="breadcrumb">
 <li>
-<span>Patient</span>
+<p style="color:green;">[[${successMessage}]]</p>
 </li>
 <li class="active">
-<span>Add Patient</span>
+<span>Edit Patient</span>
 </li>
 </ol>
 </div>
@@ -55,62 +55,50 @@
 <h5 class="panel-title">Add Patient</h5>
 </div>
 <div class="panel-body">
-<form role="form" name="" method="post">
+<form th:action="@{/hms/doctor/update-patient/{id}(id=${ids})}" th:object="${patient}" role="form" name="" method="post">
 
 <div class="form-group">
 <label for="doctorname">
 Patient Name
 </label>
-<input type="text" name="patname" class="form-control"  value="" required="true">
+<input type="text" th:field="*{name}" name="patname" class="form-control"  value="" required="true">
 </div>
 <div class="form-group">
 <label for="fess">
  Patient Contact no
 </label>
-<input type="text" name="patcontact" class="form-control"  value="" required="true" maxlength="10" pattern="[0-9]+">
+<input type="text" th:field="*{contno}" name="patcontact" class="form-control"  value="" required="true" maxlength="10" pattern="[0-9]+">
 </div>
 <div class="form-group">
 <label for="fess">
 Patient Email
 </label>
-<input type="email" id="patemail" name="patemail" class="form-control"  value="" readonly='true'>
+<input type="email" th:field="*{email}" id="patemail" name="patemail" class="form-control"  value="" readonly='true'>
 <span id="email-availability-status"></span>
 </div>
-<div class="form-group">
-              <label class="control-label">Gender: </label>
-              
-              <input type="radio" name="gender" id="gender" value="Female" checked="true">Female
-              <input type="radio" name="gender" id="gender" value="male">Male
-              
-              <label>
-              <input type="radio" name="gender" id="gender" value="Male" checked="true">Male
-              <input type="radio" name="gender" id="gender" value="Female">Female
-              </label>
-             
-            </div>
 <div class="form-group">
 <label for="address">
 Patient Address
 </label>
-<textarea name="pataddress" class="form-control" required="true"></textarea>
+<textarea name="pataddress" th:field="*{address}" class="form-control" required="true"></textarea>
 </div>
 <div class="form-group">
 <label for="fess">
  Patient Age
 </label>
-<input type="text" name="patage" class="form-control"  value="" required="true">
+<input type="text" name="patage" th:field="*{age}" class="form-control"  value="" required="true">
 </div>
 <div class="form-group">
 <label for="fess">
  Medical History
 </label>
-<textarea type="text" name="medhis" class="form-control"  placeholder="Enter Patient Medical History(if any)" required="true"></textarea>
+<textarea type="text" name="medhis" th:field="*{medhistory}" class="form-control"  placeholder="Enter Patient Medical History(if any)" required="true"></textarea>
 </div>	
 <div class="form-group">
 <label for="fess">
  Creation Date
 </label>
-<input type="text" class="form-control"  value="" readonly='true'>
+<input type="text" th:value="${creationdate}" class="form-control"  value="" readonly='true'>
 </div>
 <button type="submit" name="submit" id="submit" class="btn btn-o btn-primary">
 Update

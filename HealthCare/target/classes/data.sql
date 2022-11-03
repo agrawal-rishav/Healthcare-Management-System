@@ -11,15 +11,15 @@ INSERT INTO `appointment` (`id`, `doctorspecialization`, `doctorid`, `userid`, `
 
 
 INSERT INTO `doctors` (`id`, `specilization`, `doctorname`, `address`, `docfees`, `contactno`, `docemail`, `password`, `creationdate`, `updationdate`) VALUES
-(1, 'Dentist', 'Anuj', 'New Delhi', '500', 8285703354, 'anuj.lpu1@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2016-12-29 06:25:37', '2019-06-30 12:11:05'),
-(2, 'Homeopath', 'Sarita Pandey', 'Varanasi', '600', 2147483647, 'sarita@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2016-12-29 06:51:51', '0000-00-00 00:00:00'),
-(3, 'General Physician', 'Nitesh Kumar', 'Ghaziabad', '1200', 8523699999, 'nitesh@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2017-01-07 07:43:35', '0000-00-00 00:00:00'),
-(4, 'Homeopath', 'Vijay Verma', 'New Delhi', '700', 25668888, 'vijay@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2017-01-07 07:45:09', '0000-00-00 00:00:00'),
-(5, 'Ayurveda', 'Sanjeev', 'Gurugram', '8050', 442166644646, 'sanjeev@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2017-01-07 07:47:07', '0000-00-00 00:00:00'),
-(6, 'General Physician', 'Amrita', 'New Delhi India', '2500', 45497964, 'amrita@test.com', 'f925916e2754e5e03f75dd58a5733251', '2017-01-07 07:52:50', '0000-00-00 00:00:00'),
-(7, 'Demo test', 'abc ', 'New Delhi India', '200', 852888888, 'test@demo.com', 'f925916e2754e5e03f75dd58a5733251', '2017-01-07 08:08:58', '2019-06-23 18:17:25'),
-(8, 'Ayurveda', 'Test Doctor', 'Xyz Abc New Delhi', '600', 1234567890, 'test@test.com', '202cb962ac59075b964b07152d234b70', '2019-06-23 17:57:43', '2019-06-23 18:06:06'),
-(9, 'Dermatologist', 'Anuj kumar', 'New Delhi India 110001', '500', 1234567890, 'anujk@test.com', 'f925916e2754e5e03f75dd58a5733251', '2019-11-10 18:37:47', '2019-11-10 18:38:10');
+(1, 'Dentist', 'Anuj', 'New Delhi', '500', 8285703354, 'anuj.lpu1@gmail.com', '12345678', '2016-12-29 06:25:37', '2019-06-30 12:11:05'),
+(2, 'Homeopath', 'Sarita Pandey', 'Varanasi', '600', 2147483647, 'sarita@gmail.com', '12345678', '2016-12-29 06:51:51', '0000-00-00 00:00:00'),
+(3, 'General Physician', 'Nitesh Kumar', 'Ghaziabad', '1200', 8523699999, 'nitesh@gmail.com', '12345678', '2017-01-07 07:43:35', '0000-00-00 00:00:00'),
+(4, 'Homeopath', 'Vijay Verma', 'New Delhi', '700', 25668888, 'vijay@gmail.com', '12345678', '2017-01-07 07:45:09', '0000-00-00 00:00:00'),
+(5, 'Ayurveda', 'Sanjeev', 'Gurugram', '8050', 442166644646, 'sanjeev@gmail.com', '12345678', '2017-01-07 07:47:07', '0000-00-00 00:00:00'),
+(6, 'General Physician', 'Amrita', 'New Delhi India', '2500', 45497964, 'amrita@test.com', '12345678', '2017-01-07 07:52:50', '0000-00-00 00:00:00'),
+(7, 'Demo test', 'abc ', 'New Delhi India', '200', 852888888, 'test@demo.com', '12345678', '2017-01-07 08:08:58', '2019-06-23 18:17:25'),
+(8, 'Ayurveda', 'Test Doctor', 'Xyz Abc New Delhi', '600', 1234567890, 'test@test.com', '12345678', '2019-06-23 17:57:43', '2019-06-23 18:06:06'),
+(9, 'Dermatologist', 'Anuj kumar', 'New Delhi India 110001', '500', 1234567890, 'anujk@test.com', '12345678', '2019-11-10 18:37:47', '2019-11-10 18:38:10');
 
 
 
@@ -65,12 +65,12 @@ INSERT INTO `tblpatient` (`id`, `docid`, `patientname`, `patientcontno`, `patien
 
 
 INSERT INTO `users` (`id`, `fullname`, `address`, `city`, `gender`, `email`, `password`, `regdate`, `updationdate`) VALUES
-(2, 'Sarita pandey', 'New Delhi India', 'Delhi', 'female', 'test@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2016-12-30 05:34:39', '0000-00-00 00:00:00'),
-(3, 'Amit', 'New Delhi', 'New delhi', 'male', 'amit@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2017-01-07 06:36:53', '0000-00-00 00:00:00'),
-(4, 'Rahul Singh', 'New Delhi', 'New delhi', 'male', 'rahul@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2017-01-07 07:41:14', '0000-00-00 00:00:00'),
-(5, 'Amit kumar', 'New Delhi India', 'Delhi', 'male', 'amit12@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2017-01-07 08:00:26', '0000-00-00 00:00:00'),
-(6, 'Test user', 'New Delhi', 'Delhi', 'male', 'tetuser@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2019-06-23 18:24:53', '2019-06-23 18:36:09'),
-(7, 'John', 'USA', 'Newyork', 'male', 'john@test.com', 'f925916e2754e5e03f75dd58a5733251', '2019-11-10 18:40:21', '2019-11-10 18:40:51');
+(2, 'Sarita pandey', 'New Delhi India', 'Delhi', 'female', 'test@gmail.com', '12345678', '2016-12-30 05:34:39', '0000-00-00 00:00:00'),
+(3, 'Amit', 'New Delhi', 'New delhi', 'male', 'amit@gmail.com', '12345678', '2017-01-07 06:36:53', '0000-00-00 00:00:00'),
+(4, 'Rahul Singh', 'New Delhi', 'New delhi', 'male', 'rahul@gmail.com', '12345678', '2017-01-07 07:41:14', '0000-00-00 00:00:00'),
+(5, 'Amit kumar', 'New Delhi India', 'Delhi', 'male', 'amit12@gmail.com', '12345678', '2017-01-07 08:00:26', '0000-00-00 00:00:00'),
+(6, 'Test user', 'New Delhi', 'Delhi', 'male', 'tetuser@gmail.com', '12345678', '2019-06-23 18:24:53', '2019-06-23 18:36:09'),
+(7, 'John', 'USA', 'Newyork', 'male', 'john@test.com', '12345678', '2019-11-10 18:40:21', '2019-11-10 18:40:51');
 
 
 
