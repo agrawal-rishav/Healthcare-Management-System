@@ -21,6 +21,7 @@ import com.HMS.HealthCare.Entity.Patient;
 import com.HMS.HealthCare.Entity.Tblmedicalhistory;
 import com.HMS.HealthCare.Entity.Tblpatient;
 import com.HMS.HealthCare.Entity.Users;
+import com.HMS.HealthCare.Service.AppointmentService;
 import com.HMS.HealthCare.Service.DoctorService;
 import com.HMS.HealthCare.Service.MedicalHistoryService;
 import com.HMS.HealthCare.Service.PatientService;
@@ -37,6 +38,8 @@ public class PatientController {
     private DoctorService doctorService;
     @Autowired
     private MedicalHistoryService medicalHistoryService;
+    @Autowired
+    private AppointmentService appointmentService;
 
     static Users user;
 
@@ -74,7 +77,8 @@ public class PatientController {
     }
 
     @PostMapping("/hms/book-appointment")
-    public String bookAppointment(Model model) {
+    public String bookAppointment(@RequestParam("Doctorspecialization") String special, @RequestParam("fees") String fees, @RequestParam("appdate") String date, @RequestParam("apptime") String time , Model model) {
+        appointmentService.addAppointment(special, fees, date, time, user.getId());
         model.addAttribute("username", user.getFullname());
         model.addAttribute("message", "Appointment booked successfully");
         return "/hms/book-appointment";
@@ -136,14 +140,29 @@ public class PatientController {
 
     @GetMapping("/hms/registeration")
     public String getRegisteration(Model model) {
-
+        Users user = new Users();
+        model.addAttribute("message", "");
+        model.addAttribute("user", user);
+        model.addAttribute("female", "female");
+        model.addAttribute("male", "male");
         return "hms/registeration";
     }
 
-    @PostMapping("/register-patient")
-    public String printDetails( BindingResult result, RedirectAttributes redirectAttributes, Model model) {
+    @PostMapping("/register-user")
+    public String printDetails(@ModelAttribute("user") Users user, @RequestParam("password_again") String confPassword, Model model) {
         
-        return "/hms/user-login";
+        if(!user.getPassword().equals(confPassword) || user.getPassword().equals("")) {
+            model.addAttribute("message", "Passwords do not match");
+            model.addAttribute("firstTime", false);
+            return getRegisteration(model);
+        }
+        if(!userService.addUser(user)) {
+            model.addAttribute("message", "User with this email already exists");
+            model.addAttribute("firstTime", false);
+            return getRegisteration(model);
+        }
+        
+        return getPatientLoginpage();
     }
 
     public List<String> getDoctorSpecializationList() {
