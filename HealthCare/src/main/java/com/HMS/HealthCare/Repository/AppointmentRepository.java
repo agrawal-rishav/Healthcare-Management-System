@@ -6,4 +6,5 @@ import com.HMS.HealthCare.Entity.Appointment;
 
 public interface AppointmentRepository extends CrudRepository<Appointment, Long> {
     
+
 }
